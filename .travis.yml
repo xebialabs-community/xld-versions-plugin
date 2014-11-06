@@ -5,5 +5,6 @@ deploy:
     secure: BYlNK8Bk2mJqDHOdArB8UZwQbjEi9M+tWlg/z1P9BcKMXVfufCWZKD0csPI6nGYNaP/a2Sgpqpa1LYZAsenrreu3Ttld7o1iiomCKT25+4n3oStsDf+4W0XK697AOHsyJ1QVoVzBa69US+fktzNemcLdCGdVDJrcuQE6V1r5sI8=
   file: target/xld-versions-plugin-*.jar
   on:
+    all_branches: true
     tags: true
     repo: amochtar/xld-versions-plugin
