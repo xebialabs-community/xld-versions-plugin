@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<endpoints xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns="http://www.xebialabs.com/deployit/endpoints"
+           xsi:schemaLocation="http://www.xebialabs.com/deployit/endpoints endpoints.xsd">
+
+    <endpoint path="/xld-versions-plugin/versions"        method="GET" script="xld-versions-plugin/versions.py" />
+    <endpoint path="/xld-versions-plugin/applications"    method="GET" script="xld-versions-plugin/applications.py" />
+    <endpoint path="/xld-versions-plugin/default-app"     method="GET" script="xld-versions-plugin/default-app.py" />
+    <endpoint path="/xld-versions-plugin/env-details"     method="GET" script="xld-versions-plugin/env-details.py" />
+    <endpoint path="/xld-versions-plugin/env-order"       method="GET" script="xld-versions-plugin/env-order.py" />
+    <endpoint path="/xld-versions-plugin/version-details" method="GET" script="xld-versions-plugin/version-details.py" />
+</endpoints>
+

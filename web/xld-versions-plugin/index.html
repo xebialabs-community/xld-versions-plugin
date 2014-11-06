@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    
+    <script type="text/javascript" src="angular-1.2.26/angular.min.js"></script>
+    <script type="text/javascript" src="ui-bootstrap-0.11.2/ui-bootstrap-tpls-0.11.2.min.js"></script>
+    <script type="text/javascript" src="versions.js"></script>
+
+    <link rel="stylesheet" href="bootstrap-3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="versions.css">
+</head>
+<body ng-app="staterVersions" ng-controller="VersionsController" class="ng-cloak" xmlns:ng="http://angularjs.org" id="ng-app" ng-app="staterVersions">
+
+<script type="text/ng-template" id="envDetails.html">
+    <div class="modal-header">
+        <h3 class="modal-title">{{ envDetails.env }}</h3>
+    </div>
+    <div class="modal-body">
+        <p>Containers to which {{ envDetails.version }} has been deployed:</p>
+        <ul>
+            <li ng-repeat="container in envDetails.containers | orderBy:'toString()'">{{ container }}</li>
+        </ul>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" ng-click="dismiss()">Close</button>
+    </div>
+</script>
+
+<script type="text/ng-template" id="compare.html">
+    <div class="modal-header">
+        <h3 class="modal-title">Comparing composite application {{ application }}</h3>
+    </div>
+    <div class="modal-body">
+        <p>Comparing the version {{ envVersion.id.split('/').pop() }} (currently deployed on {{ env.split('/').pop() }}) with version {{ compareVersion.id.split('/').pop() }}:</p>
+        <table class="overview">
+            <tr>
+                <td></td>
+                <td>{{ envVersion.id.split('/').pop() }}</td>
+                <td>{{ compareVersion.id.split('/').pop() }}</td>
+            </tr>
+            <tr ng-repeat="(package, version) in envVersion.packages | orderBy: 'toString()'">
+                <td>{{ package.replace('Applications/', '') }}</td>
+                <td>{{ version }}</td>
+                <td ng-class="(version != compareVersion.packages[package]) ? 'diff' : ''">{{ compareVersion.packages[package] }}</td>
+            </tr>
+        </table>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" ng-click="dismiss()">Close</button>
+    </div>
+</script>
+
+<div class="content">
+
+    <h3 class="application">Versions overview for
+        <select ng-model="application" ng-change="refresh()">
+            <option ng-repeat="app in applications">{{ app }}</option>
+        </select>
+        <a class="glyphicon glyphicon-refresh icon-refresh-animate" ng-click="refresh()" title="Refresh"></a>
+    </h3>
+
+    <p ng-if="message">{{ message }}</p>
+    <p ng-if="!message && countKeys(versions) == 0">No versions of {{ application }} have been deployed.</p>
+    <table ng-if="!message && countKeys(versions) > 0" class="overview">
+        <tr>
+            <td></td>
+            <td ng-repeat="env in environments">{{ env.split('/').pop() }}</td>
+        </tr>
+        <tr ng-repeat="(version,details) in versions">
+            <td class="version" ng-if="details.package.type != 'udm.CompositePackage'">
+                {{ version.split('/').pop() }}
+            </td>
+            <td class="version" ng-if="details.package.type == 'udm.CompositePackage'">
+                <a ng-click="details.isCollapsed = !details.isCollapsed">
+                <span class="glyphicon glyphicon glyphicon-expand" ng-if="details.isCollapsed"></span>
+                <span class="glyphicon glyphicon glyphicon-collapse-down" ng-if="!details.isCollapsed"></span>
+                {{ version.split('/').pop() }}
+                </a>
+                <table collapse="details.isCollapsed" class="details">
+                    <tr ng-repeat="package in details.package.packages | orderBy:'id'">
+                        <td class="details">{{package.id.replace("Applications/", "").split('/').slice(-2)[0]}}</td>
+                        <td class="details">{{package.id.replace("Applications/", "").split('/').pop()}}</td>
+                    </tr>
+                </table>
+            </td>
+
+            <td ng-repeat="env in environments">
+                <a ng-if="details.envs.indexOf(env)>=0" class="glyphicon glyphicon-ok" ng-click="showEnvDetails(env)" title="Show containers for {{ env }}" /></a>
+                <a ng-if="(details.package.type == 'udm.CompositePackage') && (details.envs.indexOf(env) < 0)" class="compare" ng-click="compareVersion(env, version)" title="Compare {{ env }} with version {{ version }}" /><img src="compare.png"></a>
+            </td>
+        </tr>
+    </table>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<synthetic xsi:schemaLocation="http://www.xebialabs.com/deployit/synthetic synthetic.xsd" xmlns="http://www.xebialabs.com/deployit/synthetic" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <type type="versions.EnvironmentOrder"
+          extends="udm.Configuration"
+          description="Defines the order in which environments are shown">
+        <property name="order"
+                  kind="list_of_string"
+                  required="true"
+                  label="Environment Order"
+                  description="The order in which environments are shown. The regular expressions defined here, are replaced with an incremental number, in the order which is defined here. After the replacements the environments are sorte d lexicographically."/>
+    </type>
+
+    <type type="versions.DefaultApplication"
+          extends="udm.Configuration"
+          description="Defines which application ">
+        <property name="app"
+                  kind="ci"
+                  required="true"
+                  label="Default Application"
+                  referenced-type="udm.Application"
+                  description="The default application to show in the versions overview"/>
+    </type>
+
+</synthetic>
