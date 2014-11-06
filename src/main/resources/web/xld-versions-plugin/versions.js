@@ -162,6 +162,7 @@ versionsApp.controller('VersionsController', function ($scope, $modal, versionsS
                 $modal.open({
                     templateUrl: 'compare.html',
                     controller: 'CompareController',
+                    size: 'lg',
                     scope: $scope,
                     resolve: {
                         env:            function() { return env; },

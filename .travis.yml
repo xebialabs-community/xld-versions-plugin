@@ -3,7 +3,7 @@ deploy:
   provider: releases
   api_key:
     secure: BYlNK8Bk2mJqDHOdArB8UZwQbjEi9M+tWlg/z1P9BcKMXVfufCWZKD0csPI6nGYNaP/a2Sgpqpa1LYZAsenrreu3Ttld7o1iiomCKT25+4n3oStsDf+4W0XK697AOHsyJ1QVoVzBa69US+fktzNemcLdCGdVDJrcuQE6V1r5sI8=
-  file: target/xld-versions-plugin-1.0.0.jar
+  file: target/xld-versions-plugin-1.0.1.jar
   on:
     all_branches: true
     tags: true
