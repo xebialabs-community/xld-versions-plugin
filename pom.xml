@@ -6,7 +6,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.xebialabs.xldeploy.community</groupId>
     <artifactId>xld-versions-plugin</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
 
     <properties>
         <deployit.api.version>4.5.0</deployit.api.version>
