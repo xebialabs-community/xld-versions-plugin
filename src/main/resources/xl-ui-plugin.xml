@@ -2,5 +2,5 @@
         xmlns="http://www.xebialabs.com/deployit/ui-plugin"
         xsi:schemaLocation="http://www.xebialabs.com/deployit/ui-plugin xl-ui-plugin.xsd">
 
-    <menu id="xld.versions.plugin" label="Versions" uri="xld-versions-plugin" weight="99" />
+    <menu id="xld.versions.plugin" label="Versions" uri="xld-versions-plugin/index.html" weight="99" />
 </plugin>
