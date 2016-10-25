@@ -1,6 +1,8 @@
 XLD Versions Plugin
 ===================
 
+[![Build Status](https://travis-ci.org/xebialabs-community/xld-versions-plugin.svg?branch=master)](https://travis-ci.org/xebialabs-community/xld-versions-plugin)
+
 XL Deploy plugin for showing an overview which (versions of) applications are deployed to which environments.
 
 ## Features
