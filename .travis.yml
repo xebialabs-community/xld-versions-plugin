@@ -9,3 +9,7 @@ deploy:
     all_branches: true
     tags: true
     repo: xebialabs-community/xld-versions-plugin
+notifications:
+  hipchat:
+    rooms:
+      secure: G8OaTyfe6EXDMxcyztaQsVQahUgMRcn/L/tPB8eg5lecISQ8YN3/b/7mB+D/iShmeaUn6SgAiwWxXC+q7p7ZWucxno0MtjbsAVhZhzkT4fn/gHITTCqvo9Vl2rosfF7dqdI6Uo0Kl5jP4OGCOF617IFkV0IMNmvFpXry7qbfCCg=
