@@ -4,7 +4,8 @@ deploy:
   api_key:
     secure: PNF1zu7JiEcJ0hIPII3I2HXltSCmLGBwfHv7tKAEoONyjVPBXvVmvJb0Tva08VOnYVAaxCvAOlg4KnHySkQ6wlBIAcWs+LSX/OS6fgx+IB469iycyo8Cg8H23yDUPiiVWnfuq82ggoBvWbP6r94y+AyWIyssLcv6TZQ4ZbSJ1cU=
   file_glob: true
-  file: target/xld-versions-plugin-*.jar
+  file: build/libs/*
+  skip_cleanup: true
   on:
     all_branches: true
     tags: true
