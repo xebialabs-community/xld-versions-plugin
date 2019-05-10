@@ -11,6 +11,5 @@ deploy:
     tags: true
     repo: xebialabs-community/xld-versions-plugin
 notifications:
-  hipchat:
-    rooms:
-      secure: G8OaTyfe6EXDMxcyztaQsVQahUgMRcn/L/tPB8eg5lecISQ8YN3/b/7mB+D/iShmeaUn6SgAiwWxXC+q7p7ZWucxno0MtjbsAVhZhzkT4fn/gHITTCqvo9Vl2rosfF7dqdI6Uo0Kl5jP4OGCOF617IFkV0IMNmvFpXry7qbfCCg=
+  slack:
+    secure: o5QFBHMRhyblRIwuxRB+rfqj9GnyENAS0BgXjs7txgreE8v8fcoDQJQ8RFdXtK3w6Y1QEgFq+diZ4zlQRRXMzH3qC16mEfdOdiVtfnxYq2VvRIRyUVpPAteBGejaHpCNBMDR24ZTudSwaAxAuALuNDe4KieA6BuTi46rt7LPKuU=
